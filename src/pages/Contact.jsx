@@ -50,12 +50,40 @@ export default function Contact() {
                 Quick Contact
               </h3>
 
-              <a
-                href="mailto:info@rehobothtechnologies.co.tz"
-                className="inline-block bg-blue-700 text-white px-6 py-3 rounded-lg"
+              <form
+                action="mailto:info@rehobothtechnologies.co.tz"
+                method="post"
+                encType="text/plain"
+                className="space-y-4"
               >
-                Email Us
-              </a>
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  className="w-full border p-3 rounded"
+                  required
+                />
+
+                <input
+                  type="email"
+                  placeholder="Your Email"
+                  className="w-full border p-3 rounded"
+                  required
+                />
+
+                <textarea
+                  placeholder="Your Message"
+                  rows="5"
+                  className="w-full border p-3 rounded"
+                  required
+                />
+
+                <button
+                  type="submit"
+                  className="bg-blue-700 text-white px-6 py-3 rounded-lg"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
 
           </div>
