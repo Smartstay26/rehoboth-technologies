@@ -1,26 +1,33 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-function Privacy() {
+export default function Privacy() {
   return (
     <>
       <Navbar />
 
-      <div className="max-w-5xl mx-auto py-20 px-6">
-        <h1 className="text-4xl font-bold mb-6">
+      <section className="py-24 max-w-5xl mx-auto px-6">
+        <h1 className="text-5xl font-bold mb-8">
           Privacy Policy
         </h1>
 
-        <p>
-          Rehoboth Technologies Company Limited respects your privacy.
-          This website collects only necessary information for
-          communication and service delivery.
+        <p className="mb-6">
+          Rehoboth Technologies Company Limited respects your privacy
+          and is committed to protecting your personal information.
         </p>
-      </div>
+
+        <p className="mb-6">
+          We collect information only when necessary for communication,
+          service delivery, customer support and business operations.
+        </p>
+
+        <p className="mb-6">
+          We do not sell, rent or share personal information with third
+          parties except where required by law.
+        </p>
+      </section>
 
       <Footer />
     </>
   );
 }
-
-export default Privacy;
