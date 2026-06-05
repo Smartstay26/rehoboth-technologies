@@ -7,14 +7,21 @@ export default function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      "YOUR_SERVICE_ID",
-      "YOUR_TEMPLATE_ID",
-      form.current,
-      "YOUR_PUBLIC_KEY"
-    );
-
-    alert("Message sent successfully!");
+    emailjs
+      .sendForm(
+        "service_b4cjpxl",
+        "template_23n8qwf",
+        form.current,
+        "_Zh-svyHqvohlzzP"
+      )
+      .then(() => {
+        alert("Message sent successfully!");
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("Failed to send message. Please try again.");
+      });
   };
 
   return (
@@ -25,7 +32,7 @@ export default function ContactForm() {
     >
       <input
         type="text"
-        name="name"
+        name="user_name"
         placeholder="Your Name"
         className="w-full border p-3 rounded"
         required
@@ -33,7 +40,7 @@ export default function ContactForm() {
 
       <input
         type="email"
-        name="email"
+        name="user_email"
         placeholder="Your Email"
         className="w-full border p-3 rounded"
         required
@@ -41,14 +48,15 @@ export default function ContactForm() {
 
       <textarea
         name="message"
+        placeholder="Your Message"
         rows="5"
-        placeholder="Message"
         className="w-full border p-3 rounded"
         required
       />
 
       <button
-        className="bg-blue-700 text-white px-6 py-3 rounded"
+        type="submit"
+        className="bg-blue-700 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition"
       >
         Send Message
       </button>
