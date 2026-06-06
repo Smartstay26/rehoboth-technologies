@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import ThankYou from "./pages/ThankYou";
+import Consultation from "./pages/Consultation";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/privacy-policy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/consultation" element={<Consultation />} />
 
       </Routes>
     </BrowserRouter>
