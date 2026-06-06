@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export default function EnterpriseHome() {
   const services = [
@@ -57,7 +58,9 @@ export default function EnterpriseHome() {
               href="/contact"
               className="bg-yellow-400 text-black px-8 py-4 rounded-xl font-semibold"
             >
-              Request Consultation
+              <Link to="/consultation">
+                <button>Request Consultation</button>
+              </Link>
             </a>
 
             <a
