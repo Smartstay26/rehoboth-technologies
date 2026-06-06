@@ -1,38 +1,16 @@
-import { useRef } from "react";
-import emailjs from "@emailjs/browser";
-
 export default function ContactForm() {
-  const form = useRef();
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        "service_b4cjpxl",
-        "template_23n8qwf",
-        form.current,
-        "_Zh-svyHqvohlzzP"
-      )
-      .then(() => {
-        alert("Message sent successfully!");
-        form.current.reset();
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Failed to send message. Please try again.");
-      });
-  };
-
   return (
     <form
-      ref={form}
-      onSubmit={sendEmail}
+      name="contact"
+      method="POST"
+      data-netlify="true"
       className="space-y-4"
     >
+      <input type="hidden" name="form-name" value="contact" />
+
       <input
         type="text"
-        name="user_name"
+        name="name"
         placeholder="Your Name"
         className="w-full border p-3 rounded"
         required
@@ -40,7 +18,7 @@ export default function ContactForm() {
 
       <input
         type="email"
-        name="user_email"
+        name="email"
         placeholder="Your Email"
         className="w-full border p-3 rounded"
         required
