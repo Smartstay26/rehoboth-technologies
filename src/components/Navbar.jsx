@@ -24,7 +24,13 @@ export default function Navbar() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/services">Services</Link>
-          <Link to="/products">Products</Link>
+          <a
+  href="https://commerce.rehobothtechnologies.co.tz"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Products
+</a>
           <Link to="/contact">Contact</Link>
         </div>
       </div>
