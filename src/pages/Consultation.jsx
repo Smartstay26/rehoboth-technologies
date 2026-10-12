@@ -1,85 +1,10 @@
+import { useState } from "react";
+import { useLanguage } from "../context/LanguageContext.jsx";
 export default function Consultation() {
-  return (
-    <div className="min-h-screen bg-gray-50 py-16 px-6">
-      <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl p-10">
-
-        <div className="text-center mb-10">
-          <h1 className="text-5xl font-bold text-blue-900">
-            Request a Consultation
-          </h1>
-
-          <p className="text-gray-600 mt-4 text-lg">
-            Tell us about your project and our experts will contact you
-            within 24 hours.
-          </p>
-        </div>
-
-        <form
-          name="consultation"
-          method="POST"
-          data-netlify="true"
-          className="space-y-6"
-        >
-          <input
-            type="hidden"
-            name="form-name"
-            value="consultation"
-          />
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              required
-              className="border border-gray-300 rounded-xl p-4 w-full"
-            />
-
-            <input
-              type="email"
-              name="email"
-              placeholder="Business Email"
-              required
-              className="border border-gray-300 rounded-xl p-4 w-full"
-            />
-          </div>
-
-          <input
-            type="text"
-            name="company"
-            placeholder="Company Name"
-            className="border border-gray-300 rounded-xl p-4 w-full"
-          />
-
-          <select
-            name="service"
-            className="border border-gray-300 rounded-xl p-4 w-full"
-          >
-            <option>Select Service</option>
-            <option>Software Development</option>
-            <option>HotelConnect TZ</option>
-            <option>ICT Infrastructure</option>
-            <option>Cyber Security</option>
-            <option>Cloud Solutions</option>
-            <option>Business Automation</option>
-          </select>
-
-          <textarea
-            name="project"
-            rows="6"
-            placeholder="Describe your project requirements..."
-            required
-            className="border border-gray-300 rounded-xl p-4 w-full"
-          ></textarea>
-
-          <button
-            type="submit"
-            className="w-full bg-blue-700 hover:bg-blue-800 text-white py-4 rounded-xl text-lg font-semibold transition"
-          >
-            Submit Consultation Request
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+  const { language } = useLanguage(); const sw = language === "sw";
+  const [sent, setSent] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", company: "", service: "Business software", project: "" });
+  const update = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const submit = (e) => { e.preventDefault(); const body = new URLSearchParams({ "form-name": "consultation", ...form }).toString(); fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body }).then(() => setSent(true)).catch(() => { window.location.href = `mailto:info@rehobothtechnologies.co.tz?subject=${encodeURIComponent("Consultation request")}&body=${encodeURIComponent(Object.entries(form).map(([k,v])=>`${k}: ${v}`).join("\n"))}`; }); };
+  return <><section className="page-hero"><div className="container"><span className="eyebrow">{sw ? "Mashauriano" : "Consultation"}</span><h1>{sw ? "Tupange mazungumzo kuhusu mahitaji yako" : "Plan a conversation about your needs"}</h1><p>{sw ? "Shiriki maelezo machache ili tujiandae kwa mazungumzo yenye manufaa." : "Share a few details so we can prepare for a useful first discussion."}</p></div></section><section className="section"><div className="container narrow-container"><div className="contact-form-card card"><h2>{sw ? "Ombi la mashauriano" : "Consultation request"}</h2>{sent ? <div className="success-state"><span>✓</span><h3>{sw ? "Ombi limepokelewa" : "Request submitted"}</h3><p>{sw ? "Asante. Tutapitia maelezo yako." : "Thank you. Your details have been submitted."}</p></div> : <form name="consultation" method="POST" data-netlify="true" onSubmit={submit}><input type="hidden" name="form-name" value="consultation" /><label>{sw ? "Jina" : "Name"}<input name="name" value={form.name} onChange={update} required /></label><label>Email<input type="email" name="email" value={form.email} onChange={update} required /></label><label>{sw ? "Kampuni/taasisi" : "Company or organisation"}<input name="company" value={form.company} onChange={update} /></label><label>{sw ? "Huduma unayohitaji" : "Service of interest"}<select name="service" value={form.service} onChange={update}><option>Business software</option><option>HotelConnect TZ</option><option>Custom software development</option><option>ICT infrastructure</option><option>Systems integration</option><option>Other</option></select></label><label>{sw ? "Maelezo ya mradi" : "Project details"}<textarea name="project" value={form.project} onChange={update} rows="5" required /></label><button className="btn btn-primary" type="submit">{sw ? "Tuma ombi" : "Submit request"}</button></form>}</div></div></section></>;
 }

@@ -1,33 +1,5 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
+import { useLanguage } from "../context/LanguageContext.jsx";
 export default function Privacy() {
-  return (
-    <>
-      <Navbar />
-
-      <section className="py-24 max-w-5xl mx-auto px-6">
-        <h1 className="text-5xl font-bold mb-8">
-          Privacy Policy
-        </h1>
-
-        <p className="mb-6">
-          Rehoboth Technologies Company Limited respects your privacy
-          and is committed to protecting your personal information.
-        </p>
-
-        <p className="mb-6">
-          We collect information only when necessary for communication,
-          service delivery, customer support and business operations.
-        </p>
-
-        <p className="mb-6">
-          We do not sell, rent or share personal information with third
-          parties except where required by law.
-        </p>
-      </section>
-
-      <Footer />
-    </>
-  );
+  const { language } = useLanguage(); const sw = language === "sw";
+  return <section className="section"><div className="container legal-content"><span className="eyebrow">{sw ? "Sera" : "Policy"}</span><h1 className="section-title">{sw ? "Sera ya faragha" : "Privacy policy"}</h1><p>{sw ? "Tunatumia taarifa unazotuma kupitia fomu za tovuti kujibu maombi na kuwasiliana nawe kuhusu huduma ulizoomba. Epuka kutuma taarifa nyeti kupitia fomu hii." : "We use information submitted through website forms to respond to enquiries and communicate with you about requested services. Please do not submit sensitive personal information through these forms."}</p><h2>{sw ? "Taarifa tunazokusanya" : "Information we collect"}</h2><p>{sw ? "Tunaweza kupokea jina, barua pepe, simu na maelezo unayochagua kutuma." : "We may receive your name, email address, phone number and the details you choose to provide."}</p><h2>{sw ? "Matumizi ya taarifa" : "How information is used"}</h2><p>{sw ? "Taarifa hutumika kujibu ombi lako, kufuatilia mazungumzo na kuboresha huduma zetu." : "Information is used to respond to your request, follow up on enquiries and improve our services."}</p><h2>{sw ? "Mawasiliano" : "Contact"}</h2><p>info@rehobothtechnologies.co.tz</p><p className="form-note">{sw ? "Hii ni rasimu ya msingi ya sera; ipitiwe kisheria kabla ya kuchapishwa kama sera kamili." : "This is a basic draft and should be reviewed for legal completeness before being treated as a comprehensive policy."}</p></div></section>;
 }

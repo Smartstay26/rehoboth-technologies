@@ -1,15 +1,3 @@
-export default function ThankYou() {
-  return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-5xl font-bold text-green-600">
-          Thank You!
-        </h1>
-
-        <p className="mt-4 text-lg">
-          Your message has been sent successfully.
-        </p>
-      </div>
-    </div>
-  );
-}
+import { Link } from "react-router-dom";
+import { useLanguage } from "../context/LanguageContext.jsx";
+export default function ThankYou() { const { language } = useLanguage(); const sw = language === "sw"; return <section className="section"><div className="container success-page"><div className="success-mark">✓</div><h1>{sw ? "Asante kwa ujumbe wako" : "Thank you for your message"}</h1><p>{sw ? "Tumepokea ombi lako." : "Your enquiry has been received."}</p><Link to="/" className="btn btn-primary">{sw ? "Rudi mwanzo" : "Back to home"}</Link></div></section>; }

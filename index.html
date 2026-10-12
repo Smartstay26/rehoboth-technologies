@@ -1,28 +1,35 @@
 <!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>rehoboth-technologies</title>
-</head>
-
-<body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
-  <form name="contact" netlify netlify-honeypot="bot-field" hidden>
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <textarea name="message"></textarea>
-  </form>
-  <form name="consultation" netlify hidden>
-  <input type="text" name="name">
-  <input type="email" name="email">
-  <input type="text" name="company">
-  <input type="text" name="service">
-  <textarea name="project"></textarea>
-</form>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09275b" />
+    <meta name="description" content="Rehoboth Technologies Company Limited builds practical software, cloud, ICT infrastructure and digital transformation solutions for Tanzanian businesses." />
+    <meta name="keywords" content="Tanzania business software, ERP Tanzania, hotel booking software, ICT solutions Tanzania, software development Tanzania, Rehoboth Technologies" />
+    <meta property="og:title" content="Rehoboth Technologies Company Limited" />
+    <meta property="og:description" content="Innovative Technology. Reliable Solutions. Real Impact." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Rehoboth Technologies | Software & ICT Solutions in Tanzania</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <p><label>Do not fill this out: <input name="bot-field" /></label></p>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="consultation" netlify hidden>
+      <input type="hidden" name="form-name" value="consultation" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <input type="text" name="service" />
+      <textarea name="project"></textarea>
+    </form>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

@@ -1,34 +1,5 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
+import { useLanguage } from "../context/LanguageContext.jsx";
 export default function Terms() {
-  return (
-    <>
-      <Navbar />
-
-      <section className="py-24 max-w-5xl mx-auto px-6">
-        <h1 className="text-5xl font-bold mb-8">
-          Terms of Service
-        </h1>
-
-        <p className="mb-6">
-          By accessing and using this website, you agree to comply with
-          these terms and conditions.
-        </p>
-
-        <p className="mb-6">
-          Rehoboth Technologies Company Limited provides information
-          and services on an "as available" basis without warranties
-          of any kind.
-        </p>
-
-        <p className="mb-6">
-          We reserve the right to modify these terms at any time
-          without prior notice.
-        </p>
-      </section>
-
-      <Footer />
-    </>
-  );
+  const { language } = useLanguage(); const sw = language === "sw";
+  return <section className="section"><div className="container legal-content"><span className="eyebrow">{sw ? "Masharti" : "Terms"}</span><h1 className="section-title">{sw ? "Masharti ya matumizi ya tovuti" : "Website terms of use"}</h1><p>{sw ? "Tovuti hii hutoa taarifa za jumla kuhusu kampuni, huduma na bidhaa zinazopangwa. Hali ya bidhaa inaweza kubadilika na maelezo ya huduma maalum yatathibitishwa katika makubaliano tofauti." : "This website provides general information about the company, services and planned products. Product status may change, and the scope of any specific service will be confirmed in a separate agreement."}</p><h2>{sw ? "Bidhaa na huduma" : "Products and services"}</h2><p>{sw ? "Alama za majaribio na zinazokuja zinaonyesha kuwa bidhaa haipaswi kuchukuliwa kuwa huduma ya kibiashara inayopatikana kwa kila mtu." : "Pilot and coming-soon labels mean a product should not be assumed to be generally commercially available."}</p><h2>{sw ? "Mawasiliano" : "Contact"}</h2><p>info@rehobothtechnologies.co.tz</p><p className="form-note">{sw ? "Rasimu hii inahitaji mapitio ya kisheria kabla ya kutumika kama masharti kamili." : "This draft should be reviewed for legal completeness before being used as full terms and conditions."}</p></div></section>;
 }

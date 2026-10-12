@@ -1,55 +1,8 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-
+import { useLanguage } from "../context/LanguageContext.jsx";
+import { Link } from "react-router-dom";
 export default function About() {
-  return (
-    <>
-      <Navbar />
-
-      <section className="py-24 bg-gray-50 min-h-screen">
-        <div className="max-w-6xl mx-auto px-6">
-
-          <h1 className="text-5xl font-bold mb-8">
-            About Rehoboth Technologies
-          </h1>
-
-          <p className="text-lg text-gray-700 mb-6">
-            Rehoboth Technologies Company Limited is a Tanzanian
-            technology company dedicated to delivering innovative,
-            reliable and scalable digital solutions for businesses,
-            institutions and organizations.
-          </p>
-
-          <p className="text-lg text-gray-700 mb-6">
-            We specialize in software development, ICT infrastructure,
-            cybersecurity, automation, cloud solutions and digital
-            transformation services that help organizations improve
-            efficiency, productivity and growth.
-          </p>
-
-          <h2 className="text-3xl font-bold mt-12 mb-4">
-            Our Mission
-          </h2>
-
-          <p className="text-gray-700">
-            To empower businesses through innovative technology
-            solutions that create measurable value and sustainable
-            growth.
-          </p>
-
-          <h2 className="text-3xl font-bold mt-12 mb-4">
-            Our Vision
-          </h2>
-
-          <p className="text-gray-700">
-            To become a leading technology solutions provider in
-            Tanzania and across Africa.
-          </p>
-
-        </div>
-      </section>
-
-      <Footer />
-    </>
-  );
+  const { language } = useLanguage(); const sw = language === "sw";
+  return <><section className="page-hero"><div className="container"><span className="eyebrow">{sw ? "Kuhusu kampuni" : "About the company"}</span><h1>{sw ? "Teknolojia bunifu. Suluhisho za kuaminika. Matokeo halisi." : "Innovative technology. Reliable solutions. Real impact."}</h1><p>{sw ? "Rehoboth Technologies Company Limited ni kampuni inayolenga kutengeneza programu na kutoa huduma za TEHAMA zinazosaidia biashara na taasisi kufanya kazi kwa ufanisi." : "Rehoboth Technologies Company Limited focuses on software and ICT solutions that help businesses and organisations work more effectively."}</p></div></section>
+  <section className="section"><div className="container about-content"><div><span className="eyebrow">{sw ? "Mwelekeo wetu" : "Our approach"}</span><h2 className="section-title">{sw ? "Anza na tatizo, chagua suluhisho linalofaa" : "Start with the problem. Build the right solution."}</h2><p className="section-lead">{sw ? "Tunaamini teknolojia inapaswa kurahisisha kazi, kuongeza mwonekano wa taarifa na kusaidia maamuzi. Tunazingatia matumizi halisi, uwezo wa kukua na uzoefu wa mtumiaji." : "We believe technology should simplify work, improve visibility and support better decisions. We focus on practical use, maintainability and user experience."}</p></div><div className="values-list"><article><strong>01</strong><div><h3>{sw ? "Ubunifu" : "Innovation"}</h3><p>{sw ? "Kuchunguza njia bora za kutatua changamoto." : "Exploring better ways to solve operational challenges."}</p></div></article><article><strong>02</strong><div><h3>{sw ? "Uaminifu" : "Reliability"}</h3><p>{sw ? "Kuwasiliana wazi kuhusu uwezo, hatua na hali ya bidhaa." : "Communicating clearly about capabilities, milestones and product status."}</p></div></article><article><strong>03</strong><div><h3>{sw ? "Athari halisi" : "Real impact"}</h3><p>{sw ? "Kuzingatia manufaa yanayoonekana katika shughuli za kila siku." : "Prioritising measurable value in day-to-day operations."}</p></div></article></div></div></section>
+  <section className="cta-section"><div className="container cta-inner"><div><h2>{sw ? "Tujadili mahitaji yako" : "Let's discuss your needs"}</h2><p>{sw ? "Tutafute pamoja njia inayofaa kwa biashara yako." : "Let's explore a suitable approach for your organisation."}</p></div><Link to="/consultation" className="btn btn-light">{sw ? "Omba mashauriano" : "Request consultation"}</Link></div></section></>;
 }

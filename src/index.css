@@ -1,8 +1,40 @@
 @import "tailwindcss";
 
-body{
-  margin:0;
-  font-family: Inter, sans-serif;
-  background:#ffffff;
-  color:#111827;
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #15233b;
+  background: #fff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --navy: #09275b;
+  --blue: #0757c7;
+  --sky: #22b8f0;
+  --muted: #62718a;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #c9e8ff; color: #09275b; }
+.container { width: min(1160px, calc(100% - 40px)); margin-inline: auto; }
+.section { padding: 84px 0; }
+.eyebrow { color: #0757c7; font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.section-title { margin: 12px 0 14px; color: #102448; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.1; letter-spacing: -.035em; }
+.section-lead { max-width: 700px; color: var(--muted); line-height: 1.8; font-size: 1.05rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 13px 19px; border-radius: 10px; font-weight: 750; transition: transform .2s, box-shadow .2s, background .2s; cursor: pointer; border: 1px solid transparent; }
+.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px #061e4920; }
+.btn-primary { background: #0757c7; color: #fff; }
+.btn-light { background: #fff; color: #09275b; }
+.btn-outline { border-color: #cbd8ea; color: #09275b; background: #fff; }
+.card { border: 1px solid #e4ebf4; border-radius: 18px; background: #fff; box-shadow: 0 12px 40px #0a2c5910; }
+.status { display: inline-flex; border-radius: 999px; padding: 6px 10px; font-size: .72rem; line-height: 1; font-weight: 800; }
+.status-available { color: #087443; background: #dff8eb; }
+.status-pilot { color: #875000; background: #fff0cc; }
+.status-coming { color: #4b5d7c; background: #e9eef7; }
+@media (max-width: 640px) {
+  .container { width: min(100% - 30px, 1160px); }
+  .section { padding: 62px 0; }
 }

@@ -1,16 +1,31 @@
-# React + Vite
+# Rehoboth Technologies website update
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + Vite + Tailwind CSS website for Rehoboth Technologies Company Limited.
 
-Currently, two official plugins are available:
+## Run locally
+1. Install Node.js (use a version compatible with Vite 8).
+2. Open this folder in a terminal.
+3. Run `npm install`
+4. Run `npm run dev`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Build for Netlify
+Run `npm run build`. Publish the `dist` folder on Netlify. The `public/_redirects` file provides SPA routing support.
 
-## React Compiler
+## Website scope
+- Responsive company website with Home, About, Services, Products, Contact, Consultation, Privacy Policy and Terms pages.
+- English/Kiswahili toggle.
+- Product catalogue with search and status filters.
+- Netlify Forms markup for contact and consultation.
+- Company logo retained from the supplied asset.
+- WhatsApp contact link uses the number already present in the supplied site code.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Product status
+Commerce Cloud and HotelConnect TZ are labelled **Pilot** based on the project information supplied for this website update. Biashara POS, School Manager, HR & Payroll, Fleet & Logistics and AgriTrade are labelled **Coming soon** as proposed products. Update these labels only when availability is verified.
 
-## Expanding the ESLint configuration
+The site does not contain or deploy the Rehoboth Commerce Cloud product frontend/API. Product names and descriptions in the catalogue are marketing content only; they do not connect to ERP services.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Before production
+- Verify phone number, email address and company details.
+- Test contact and consultation form submissions in Netlify after deployment.
+- Review Privacy Policy and Terms with a qualified adviser before treating them as complete legal documents.
+- Confirm product status and any payment, tax/fiscal or third-party integrations before advertising them as live.
